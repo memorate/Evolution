@@ -12,9 +12,8 @@
             return key;
          }
     }
-
-   使用：Demo<Integer> demo = new Demo<Integer>(1024);  
-         或 Demo demo = new Demo(1024);   
+ 使用：Demo<Integer> demo = new Demo<Integer>(1024);  
+       或 Demo demo = new Demo(1024);   
    注意：泛型的类型参数只能是类类型，不能是简单类型。（如：只能是Integer，不能是int）  
          不能对确切的泛型类型使用instanceof操作。（example instanceof Demo<String>是非法的）
 
