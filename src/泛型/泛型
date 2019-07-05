@@ -1,42 +1,54 @@
 ##泛型：
-      参数化类型，可用于类、接口、方法中，为泛型类、泛型接口、泛型方法。
-      泛型只在编译阶段有效，在编译过程中正确验证泛型结果后，会将泛型相关信息擦除，并且会在对象进入和离开方法的边界处添加类型检查和类型转换的方法。因此，泛型信息不会进入到运行阶段。
+　　**参数化类型，可用于类、接口、方法中，为泛型类、泛型接口、泛型方法。**  
+　　**泛型只在编译阶段有效，在编译过程中正确验证泛型结果后，会将泛型相关信息擦除，并且会在对象进入和离开方法的边界处添加类型检查和类型转换的方法。因此，泛型信息不会进入到运行阶段。**
 
 ##1.泛型类
-    pubic class Demo<T>{   //(T也可是E、K、V等任意字母)
-         private T key;
-         public Demo(T key){
-            this.key = key;
-         }
-         public T getKey(){
-            return key;
-         }
-    }
+```
+pubic class Demo<T>{   //(T也可是E、K、V等任意字母)
+     private T key;
+     
+     public Demo(T key){
+        this.key = key;
+     }
+     
+     public T getKey(){
+        return key;
+     }
+}
+```
  使用：Demo<Integer> demo = new Demo<Integer>(1024);  
-       或 Demo demo = new Demo(1024);   
-   注意：泛型的类型参数只能是类类型，不能是简单类型。（如：只能是Integer，不能是int）  
-         不能对确切的泛型类型使用instanceof操作。（example instanceof Demo<String>是非法的）
+　　　或Demo demo = new Demo(1024);   
+
+注意：泛型的类型参数只能是类类型，不能是简单类型。（如：只能是Integer，不能是int）  
+　　　不能对确切的泛型类型使用instanceof操作。（example instanceof Demo<String>是非法的）
 
 ##2.泛型接口
-    public interface Demo<T>{
-        public T algorithm();
-    }
-    使用：1）未传入泛型实参时
-             class SimpleDemo<T> implements Demo<T>{
-                 @override
-                 public T algorithm(){
-                     return null;
-                 }
-             }
-          2）传入泛型实参时
-             class AnotherDemo implements Demo<String>{
-                 @override
-                 public String algorithm(){
-                     return null;
-                 }
-             }
-     Tips:接口可extends多个接口,例：public interface Demo extends A,B,C{....}
-          类可implements多个接口，例：public class Demo implements A,B,C{....}
+```
+public interface Demo<T>{
+    public T algorithm();
+}
+ ```
+ **使用:**  
+ 1）未传入泛型实参时
+```
+class SimpleDemo<T> implements Demo<T>{
+     @override
+     public T algorithm(){
+         return null;
+     }
+}
+```
+2）传入泛型实参时
+```
+class AnotherDemo implements Demo<String>{
+     @override
+     public String algorithm(){
+         return null;
+     }
+}
+```
+Tips:　接口可extends多个接口，例：public interface Demo extends A,B,C{....}  
+　　　类可implements多个接口，例：public class Demo implements A,B,C{....}
 		  
 ##3.泛型方法
     public class Demo<T>{
