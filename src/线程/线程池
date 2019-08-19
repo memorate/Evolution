@@ -44,8 +44,8 @@
 　　b.wait()是Object类中的final方法，可抛出异常，最终执行wait(long timeout)方法，timeout为毫秒。  
 　　c.存在重载方法wait(long timeout,int nanos)，nanos为纳秒。  
 　　d.notify()、notifyAll()或者超过指定等待时间会使当前线程被唤醒进入就绪状态。  
-　　e.wait方法只能在synchronized(obj){..}语句块中使用。  
-　　f.在while循环里而不是if语句下使用wait，这样，会在线程暂停恢复后都检查wait的条件，并在条件实际并未改变的情况下处理唤醒通知。  
+　　e.wait()方法只能在synchronized(obj){..}语句块中使用。  
+　　f.在while循环里而不是if语句下使用wait()，这样，会在线程暂停恢复后都检查wait()的条件，并在条件实际并未改变的情况下处理唤醒通知。  
 #####3）notify()（线程唤醒）：  
 　　a.唤醒一个等待该对象同步锁的线程。  
 　　b.有多个线程等待同一个对象的锁时，由JVM随机唤醒其中一个线程，且不是按线程优先级。  
@@ -55,15 +55,15 @@
 #####4）notifyAll()（线程唤醒）：  
 　　a.唤醒所有等待该对象同步锁的线程。  
 　　b.虽然notifyAll()唤醒了一批线程，但最终只会有一个线程获得锁去运行。  
-　　c.notifyAll是Object类中的final方法，可抛出异常。  
+　　c.notifyAll()是Object类中的final方法，可抛出异常。  
 #####5）yield()（线程让步）：  
 　　a.使当前线程从运行状态变为就绪状态。  
-　　b.sleep是Thread类中的静态native方法，无异常抛出。  
-　　c.yield告诉当前正在执行的线程把运行机会交给线程池中拥有相同优先级的线程。  
-　　d.yield让出CPU时间片后可能是其他线程开始运行也可能是此线程重新运行。  
+　　b.yield()是Thread类中的静态native方法，无异常抛出。  
+　　c.yield()告诉当前正在执行的线程把运行机会交给线程池中拥有相同优先级的线程。  
+　　d.yield()让出CPU时间片后可能是其他线程开始运行也可能是此线程重新运行。  
 #####6）join()：  
 　　a.将另一个线程A加入到当前线程，需要等A执行结束后才能继续执行当前线程。  
-　　b.join为Thread类中的方法，可抛出异常。  
+　　b.join()为Thread类中的方法，可抛出异常。  
 
 ###六、synchronized
 #####1)互斥锁：
