@@ -16,7 +16,7 @@ public class Demo<T>{    //类名后接"<T>"，T也可是E、K、V等任意字�
     }
 }
 ```
- 使用：Demo<Integer> demo = new Demo<Integer>(1024);  
+ 使用：Demo&lt;Integer> demo = new Demo&lt;Integer>(1024);  
 　　　或Demo demo = new Demo(1024);   
 
 注意：１）泛型的类型参数只能是类类型，不能是简单类型。（如：只能是Integer，不能是int）  
@@ -77,15 +77,15 @@ public class Demo<T>{
 
 ##4.泛型通配符
 ```
-public void algorithm(List<?> value){                 //无边界泛型通配符
+public void algorithm(List<?> value){                 //无边界泛型通配符"<?>"
     System.out.println(valus.toString());
 }
     
-public void algorithm(List<? extends Demo> value){    //固定上边界泛型通配符
+public void algorithm(List<? extends Demo> value){    //固定上边界泛型通配符"<? extends Demo>"
     System.out.println(valus.toString());
 }
  
-public void algorithm(List<? super Demo> value){      //固定下边界泛型通配符
+public void algorithm(List<? super Demo> value){      //固定下边界泛型通配符"<? super Demo>"
     System.out.println(valus.toString());
 }
 ```
